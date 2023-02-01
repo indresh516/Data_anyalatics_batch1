@@ -1,0 +1,97 @@
+-----------------product table-------------------
+create table products
+(
+pid int,
+pname varchar(25),
+pqty int,
+pprice int
+);
+
+
+-------------product backup--------------------
+
+create table products_backup
+(
+pid int,
+pname varchar(25),
+pqty int,
+pprice int,
+audit_action varchar(25),
+action_time date
+);
+
+-------------create tiggers after----------------
+
+
+create tigger tigger_name
+after insert on products
+for each row
+begin
+
+	insert into products_backup values (new.pid,new.pname,new.pqty,new.pprice,'Insert Data',current_timestamp());
+
+end
+
+
+-------------------create tiggers before-------------------
+
+
+create tigger tigger_name
+before insert on products
+for each row
+begin
+
+	insert into products_backup values (new.pid,new.pname,new.pqty,new.pprice,'Insert Data',current_timestamp());
+
+end
+
+------------------------------After update tigger------------------------
+create tigger tigger_name
+after update on products
+for each row
+begin
+	
+	insert into products_backup values (old.pid,old.pname,old.pqty,old.pprice,'update old value',current_timestamp());
+	insert into products_backup values (new.pid,new.pname,new.pqty,new.pprice,'update value',current_timestamp());
+
+end
+
+-----------------------------------update query---------------------------
+
+update products set pname="amit",pqty=15,pprice=18000 where pid=1;
+
+
+----------------------------before update tigger-----------------------------
+create tigger tigger_name
+before update on products
+for each row
+begin
+	
+	insert into products_backup values (old.pid,old.pname,old.pqty,old.pprice,'update old value',current_timestamp());
+	insert into products_backup values (new.pid,new.pname,new.pqty,new.pprice,'update value',current_timestamp());
+
+end
+
+
+--------------------------------after delete---------------------------
+
+create tigger tigger_name
+after delete on products
+for each row
+begin
+	
+	insert into products_backup values (old.pid,old.pname,old.pqty,old.pprice,'delete old value',current_timestamp());
+	
+end
+
+
+
+
+
+
+
+
+
+
+
+
