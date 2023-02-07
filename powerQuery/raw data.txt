@@ -1,0 +1,63 @@
+--create student table
+
+create table student(
+rollno int,
+student_name varchar(25),
+city varchar(25));
+
+-- insert records
+
+insert into student values (1,"Anil","delhi");
+insert into student values (2,"Sunil","delhi");
+insert into student values (3,"Ajay","NCR");
+insert into student values (4,"Vijay","Pune");
+insert into student student values (5,"Manoj","Faridabad");
+insert into student values (6,"Geeta","Noida");
+insert into student values (7,"Sita","Noida");
+insert into student values (8,"Reeta","New Delhi");
+insert into student values (9,"Arvind","Faridabad");
+insert into student values (10,"Kumar","delhi");
+
+--create student_marks table
+create table st_marks(
+rollno int,
+science int,
+maths int,
+eng int);
+
+--insert records into st_marks
+
+insert into st_marks values (1,34,78,54);
+insert into st_marks values (2,78,43,87);
+insert into st_marks values (3,45,32,78);
+insert into st_marks values (4,36,78,32);
+insert into st_marks values (5,12,22,67);
+insert into st_marks values (6,21,65,43);
+insert into st_marks values (7,34,78,54);
+insert into st_marks values (8,89,78,54);
+insert into st_marks values (9,76,78,54);
+insert into st_marks values (10,22,56,54);
+
+
+
+
+
+
+
+--correlation table employee
+
+create table employee(
+emp_id int primary key auto_increment,
+salary int);
+
+
+-- insert records
+
+insert into employee(salary) values(3000);
+insert into employee(salary) values(2345);
+insert into employee(salary) values(7666);
+insert into employee(salary) values(3000);
+insert into employee(salary) values(7666);
+insert into employee(salary) values(5000);
+insert into employee(salary) values(6000);
+
