@@ -1,0 +1,84 @@
+-------------create table--------------
+
+
+create table student(
+studentid int not null primary key,
+stname varchar(25),
+stemail varchar(100),
+stAge int);
+
+
+--------------create procedure---------------
+
+create procedure InsertData
+(
+	id int,
+	name varchar(25),
+	email varchar(100),
+	age int
+)
+begin
+	insert into student values (id,name,email, age);
+	select * from student;
+end
+
+
+--------------insert particualar record------------
+create procedure InsertData2
+(
+	id int,
+	name varchar(25),
+	email varchar(100),
+	age int
+)
+begin
+	insert into student values (id,name,email, age);
+	select * from student where studentid=id;
+end
+
+
+---------------------update---------------
+
+
+create procedure updateData
+(
+	id int,
+	name varchar(25),
+	email varchar(100),
+	age int
+)
+begin
+	update student set stname=name,stemail=email,stage=age where studentid=id;
+	select * from student;
+end
+
+
+-------------------delete--------------------------------
+
+
+create procedure deleteData
+(
+	id int
+)
+begin
+	delete from student where studentid=id;
+	select * from student;
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
